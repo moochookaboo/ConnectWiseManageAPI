@@ -1,20 +1,20 @@
 ---
 external help file: ConnectWiseManageAPI-help.xml
 Module Name: ConnectWiseManageAPI
-online version: https://christaylor.codes
+online version:
 schema: 2.0.0
 ---
 
-# Update-CWMSSOConfiguration
+# Update-CWMAgreement
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+This will update an agreement.
 
 ## SYNTAX
 
 ```
-Update-CWMSSOConfiguration [-id] <Int32> [-Operation] <String> [-Path] <String> [-Value] <Object> [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Update-CWMAgreement [-id] <Int32> [-Operation] <String> [-Path] <String> [-Value] <Object> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -22,12 +22,16 @@ Update-CWMSSOConfiguration [-id] <Int32> [-Operation] <String> [-Path] <String> 
 
 ## EXAMPLES
 
-### Example 1
+### EXAMPLE 1
 ```powershell
-PS C:\> {{ Add example code here }}
+$UpdateParam = @{
+    AgreementID = $Agreement.id     
+    Operation = 'replace'     
+    Path = 'quantity'     
+    Value = $Count 
+} 
+Update-CWMAgreement @UpdateParam
 ```
-
-{{ Add example description here }}
 
 ## PARAMETERS
 
@@ -41,14 +45,14 @@ Aliases: cf
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Operation
 What you are doing with the value.
-replace, add, remove
+add, replace, remove
 
 ```yaml
 Type: String
@@ -64,7 +68,7 @@ Accept wildcard characters: False
 ```
 
 ### -Path
-The path to the property that you want to perform the operation on.
+The value that you want to perform the operation on.
 
 ```yaml
 Type: String
@@ -79,7 +83,7 @@ Accept wildcard characters: False
 ```
 
 ### -Value
-The value you want to set the property to.
+The value of that operation.
 
 ```yaml
 Type: Object
@@ -104,7 +108,7 @@ Aliases: wi
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -115,7 +119,7 @@ Accept wildcard characters: False
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases:
+Aliases: agreementId
 
 Required: True
 Position: 0
@@ -130,9 +134,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### None
+
 ## OUTPUTS
 
 ### System.Object
 ## NOTES
+Author: Chris Taylor Date: 10/10/2018
 
 ## RELATED LINKS
+
+[https://developer.connectwise.com/manage/rest?a=Finance&e=AgreementAdditions&o=UPDATE](https://developer.connectwise.com/manage/rest?a=Finance&e=AgreementAdditions&o=UPDATE)
