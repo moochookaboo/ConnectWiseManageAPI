@@ -4,9 +4,11 @@
         [Parameter(Mandatory=$true)]
         [Alias('typeId')]
         [int]$grandparentId,
-   <#      [Parameter(Mandatory=$false)]
+        <#
+        [Parameter(Mandatory=$false)]
         [Alias('questionId')]
-        [int]$parentId, #>
+        [int]$parentId, 
+        #>
         [int]$id,
         [switch]$count,
         [string]$condition,
