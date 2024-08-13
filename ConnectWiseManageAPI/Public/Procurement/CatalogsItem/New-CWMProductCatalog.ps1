@@ -6,7 +6,7 @@
         [ValidateLength(1,60)]
         [string]$identifier,
         [Parameter(Mandatory=$true)]
-        [ValidateLength(1,50)]
+        [ValidateLength(1,60)]
         [string]$description,
         [bool]$inactiveFlag,
         [Parameter(Mandatory=$true)]
