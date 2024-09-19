@@ -1,7 +1,12 @@
-﻿function Get-CWMProductType {
+﻿function Get-CWMBoardItemAssociation {
     [CmdletBinding()]
     param(
-        [int]$id,
+        [Parameter(Mandatory = $true)]
+        [Alias ('boardId')]
+        [int]$grandParentId,
+        [Parameter(Mandatory = $true)]
+        [Alias ('itemId')]
+        [int]$parentId,
         [switch]$count,
         [string]$condition,
         [ValidatePattern('\S* (desc|asc)')]
@@ -13,6 +18,7 @@
         [string[]]$fields,
         [switch]$all
     )
-    $Endpoint = '/procurement/types'
+
+    $Endpoint = "/service/boards/$grandParentId/items/$parentId/associations"
     Invoke-CWMGetMaster -Arguments $PsBoundParameters -Endpoint $Endpoint
 }

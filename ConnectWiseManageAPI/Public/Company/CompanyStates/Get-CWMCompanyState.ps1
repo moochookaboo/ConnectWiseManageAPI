@@ -1,6 +1,7 @@
-﻿function Get-CWMProductType {
+﻿function Get-CWMCompanyState {
     [CmdletBinding()]
     param(
+        [Alias('companyId')]
         [int]$id,
         [switch]$count,
         [string]$condition,
@@ -13,6 +14,7 @@
         [string[]]$fields,
         [switch]$all
     )
-    $Endpoint = '/procurement/types'
+
+    $Endpoint = '/company/states'
     Invoke-CWMGetMaster -Arguments $PsBoundParameters -Endpoint $Endpoint
 }

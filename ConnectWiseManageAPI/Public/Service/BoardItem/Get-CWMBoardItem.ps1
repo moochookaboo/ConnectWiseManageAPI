@@ -1,6 +1,8 @@
-﻿function Get-CWMProductType {
+﻿function Get-CWMBoardItem {
     [CmdletBinding()]
     param(
+        [Parameter(Mandatory = $true)]
+        [int]$parentId,
         [int]$id,
         [switch]$count,
         [string]$condition,
@@ -13,6 +15,7 @@
         [string[]]$fields,
         [switch]$all
     )
-    $Endpoint = '/procurement/types'
+
+    $Endpoint = "/service/boards/$parentId/items"
     Invoke-CWMGetMaster -Arguments $PsBoundParameters -Endpoint $Endpoint
 }
